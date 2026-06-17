@@ -416,13 +416,28 @@ svg { display: block; }
 .about-copy p:last-child { margin-bottom: 0; }
 .about-copy strong { color: var(--ink); font-weight: 600; }
 
+.about-photo-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .about-stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
-  align-content: start;
+  margin-bottom: 56px;
 }
 .stat-block {
   background: var(--bg);
