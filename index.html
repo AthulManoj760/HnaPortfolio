@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harinandan A — Mechanical Engineering Portfolio</title>
+  <title>Harinandan Portfolio</title>
   <meta name="description"
     content="Portfolio of Harinandan A — Mechanical Engineering student specializing in piping stress analysis, FEA, and engineering design.">
 
@@ -14,6 +14,7 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet">
 
+  <link rel="icon" type="image/svg+xml" href="assets/hnafavicon.svg">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -57,7 +58,9 @@
         </h1>
 
         <p class="hero-subtitle">
-          Hello! I’m Harinandan, a passionate and driven B.Tech Mechanical Engineering student at RV College of Engineering, Bangalore. My academic journey is dedicated to mastering the complexities of mechanical systems, understanding the intricacies of design, and harnessing the power of innovation to solve real-world problems.
+          Hello! I’m Harinandan, a passionate and driven B.Tech Mechanical Engineering student at RV College of
+          Engineering, Bangalore. My academic journey is dedicated to mastering the complexities of mechanical systems,
+          understanding the intricacies of design, and harnessing the power of innovation to solve real-world problems.
         </p>
 
 
@@ -109,6 +112,36 @@
     <p class="mono">© <span id="year"></span> HARINANDAN A — DRAFTED IN MONOCHROME</p>
     <a href="#top" class="footer-top mono">BACK TO TOP ↑</a>
   </footer>
+
+  <div class="modal" id="internshipModal" aria-hidden="true">
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Close modal">×</button>
+      <h3 class="modal-title">Internship Details</h3>
+      <p class="modal-desc">
+        During my 2-month internship at Larsen &amp; Toubro (L&amp;T) EDRC, Chennai, I worked in the Piping, E&amp;M
+        Department within Heavy Civil Infrastructure.
+        <br><br>
+        <strong>Key Responsibilities:</strong><br>
+        • Performed stress and failure analysis using Caesar II and ANSYS, applying the Von Mises criterion and API
+        codes 520 &amp; 526.<br>
+        • Interpreted P&amp;IDs and isometric drawings; studied valve classifications and piping material selection
+        across CS, SS, and GRP.<br>
+        • Applied fluid mechanics, thermal expansion, and seismic load principles to real-world piping design scenarios.
+      </p>
+      <img src="assets/Internship Certificate.jpg" alt="Internship Certificate" class="modal-cert">
+    </div>
+  </div>
+
+  <div class="modal" id="certModal" aria-hidden="true">
+    <div class="modal-overlay" id="certModalOverlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="certModalClose" aria-label="Close modal">×</button>
+      <h3 class="modal-title" id="certModalTitle">Certificate Title</h3>
+      <p class="modal-desc" id="certModalDesc">Certificate description</p>
+      <div id="certModalImages" style="display:flex; flex-direction:column; gap:16px;"></div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

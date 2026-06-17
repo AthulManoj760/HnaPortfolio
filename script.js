@@ -130,6 +130,105 @@ function initDynamicScripts() {
     });
   }
 
+  /* ---------- Modal Logic ---------- */
+  const openModalBtn = document.getElementById('openInternshipModal');
+  const modal = document.getElementById('internshipModal');
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalClose = document.getElementById('modalClose');
+
+  if (openModalBtn && modal && modalOverlay && modalClose) {
+    const openModal = () => {
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeModal = () => {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    openModalBtn.addEventListener('click', openModal);
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+    
+    if (typeof supportsHover !== 'undefined' && supportsHover && typeof cursorDot !== 'undefined' && cursorDot) {
+      [openModalBtn, modalClose].forEach((el) => {
+        el.addEventListener('mouseenter', () => {
+          cursorDot.style.width = '34px';
+          cursorDot.style.height = '34px';
+        });
+        el.addEventListener('mouseleave', () => {
+          cursorDot.style.width = '7px';
+          cursorDot.style.height = '7px';
+        });
+      });
+    }
+  }
+
+  /* ---------- Cert Modal Logic ---------- */
+  const certModal = document.getElementById('certModal');
+  const certModalOverlay = document.getElementById('certModalOverlay');
+  const certModalClose = document.getElementById('certModalClose');
+  const certModalTitle = document.getElementById('certModalTitle');
+  const certModalDesc = document.getElementById('certModalDesc');
+  const certModalImages = document.getElementById('certModalImages');
+  const openCertBtns = document.querySelectorAll('.open-cert-modal');
+
+  if (certModal && certModalOverlay && certModalClose) {
+    const closeCertModal = () => {
+      certModal.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    certModalClose.addEventListener('click', closeCertModal);
+    certModalOverlay.addEventListener('click', closeCertModal);
+
+    openCertBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        certModalTitle.textContent = btn.getAttribute('data-title');
+        certModalDesc.textContent = btn.getAttribute('data-desc');
+        
+        certModalImages.innerHTML = '';
+        const images = btn.getAttribute('data-images');
+        if (images) {
+          images.split(',').forEach(src => {
+            if (src.trim()) {
+              const img = document.createElement('img');
+              img.src = src.trim();
+              img.className = 'modal-cert';
+              img.alt = 'Certificate';
+              certModalImages.appendChild(img);
+            }
+          });
+        }
+        
+        certModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+
+      if (typeof supportsHover !== 'undefined' && supportsHover && typeof cursorDot !== 'undefined' && cursorDot) {
+        btn.addEventListener('mouseenter', () => {
+          cursorDot.style.width = '34px';
+          cursorDot.style.height = '34px';
+        });
+        btn.addEventListener('mouseleave', () => {
+          cursorDot.style.width = '7px';
+          cursorDot.style.height = '7px';
+        });
+      }
+    });
+
+    if (typeof supportsHover !== 'undefined' && supportsHover && typeof cursorDot !== 'undefined' && cursorDot) {
+      certModalClose.addEventListener('mouseenter', () => {
+        cursorDot.style.width = '34px';
+        cursorDot.style.height = '34px';
+      });
+      certModalClose.addEventListener('mouseleave', () => {
+        cursorDot.style.width = '7px';
+        cursorDot.style.height = '7px';
+      });
+    }
+  }
+
   /* ---------- CV download fallback notice ---------- */
   const downloadLinks = document.querySelectorAll('a[download]');
   downloadLinks.forEach((link) => {
