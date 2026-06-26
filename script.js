@@ -57,7 +57,8 @@ async function loadComponents() {
     const el = document.getElementById(comp.id);
     if (el) {
       try {
-        const res = await fetch(comp.url);
+        const url = `${comp.url}?v=${Date.now()}`;
+        const res = await fetch(url, { cache: 'no-store' });
         if (res.ok) {
           const text = await res.text();
           el.innerHTML = text;
